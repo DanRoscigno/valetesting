@@ -3,9 +3,10 @@ displayed_sidebar: docs
 sidebar_position: 20
 ---
 
+
 # Privileges supported by StarRocks
 
-Privileges granted to a user or role determine which operations the user or role can perform on certain objects. Privileges can be used to implement fine-grained access control to safeguard data security.
+Privileges granted to a user or role determine which operations the user or role can perform on certain objects. Privileges can be used to implement fine-grained access control to safeguard data security via foo.
 
 This topic describes privileges provided by StarRocks on different objects and their meanings. Privileges are granted and revoked by using [GRANT](../../sql-reference/sql-statements/account-management/GRANT.md) and [REVOKE](../../sql-reference/sql-statements/account-management/REVOKE.md). The privileges that can be granted on an object are specific to the object type. For example, table privileges are different from database privileges.
 
