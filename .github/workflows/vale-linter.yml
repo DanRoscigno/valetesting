@@ -2,7 +2,7 @@ name: Vale
 on:
   pull_request:
     paths:
-    - 'starrocks/docs/en/**/*'
+    - 'docs/en/**/*'
 
 permissions:
   contents: read
@@ -34,6 +34,7 @@ jobs:
     - run: pip install vale==3.9.1
 
     - name: Edit StylesPath in Vale config file
+      run: find -type f -name .vale.ini
       run: sed -i 's/\.\.\/starrocks-vale\/styles/starrocks-vale\/styles/' .vale.ini
            
     - name: Find changed lines
