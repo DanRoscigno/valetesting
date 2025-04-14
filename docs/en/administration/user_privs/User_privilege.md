@@ -122,9 +122,9 @@ Both of the following examples set the default role of `jack` to `db1_admin`. No
 
 You can set the property of a user using [ALTER USER](../../sql-reference/sql-statements/account-management/ALTER_USER.md).
 
-The following example sets the maximum number of connections for user `jack` to `1000`. User identities that have the same user name share the same property.
+The following example sets the maximum number of connections for user `jack` to `1000`. User identities that have the same username share the same property.
 
-Therefore, you only need to set the property for `jack` and this setting takes effect for all the user identities with the user name `jack`.
+Therefore, you only need to set the property for `jack` and this setting takes effect for all the user identities with the username `jack`.
 
 ```SQL
 ALTER USER 'jack' SET PROPERTIES ("max_user_connections" = "1000");
