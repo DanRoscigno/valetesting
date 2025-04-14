@@ -41,7 +41,7 @@ jobs:
       run: |
         find .. -type d -name styles
 
-     - name: Debug template dir path
+    - name: Debug template dir path
       run: |
         find .. -type f -name vale_template.tmpl
 
