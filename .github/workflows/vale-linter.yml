@@ -33,8 +33,10 @@ jobs:
         python-version: '3.11'
     - run: pip install vale==3.9.1
 
-    - name: Edit StylesPath in Vale config file
+    - name: Debug config file path
       run: find -type f -name .vale.ini
+
+    - name: Edit StylesPath in Vale config file
       run: sed -i 's/\.\.\/starrocks-vale\/styles/starrocks-vale\/styles/' .vale.ini
            
     - name: Find changed lines
