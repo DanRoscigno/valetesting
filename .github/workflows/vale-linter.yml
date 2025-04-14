@@ -67,5 +67,5 @@ jobs:
       env:
         CHANGED_LINES: ${{ steps.changed_lines.outputs.changed_lines }}
       run: |
-        python local/bin/py/vale/vale_annotations.py \
+        python ../valetesting/starrocks-vale/templates/vale_annotations.py \
           --git_data="${CHANGED_LINES}"
