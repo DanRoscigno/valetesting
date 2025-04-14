@@ -3,6 +3,7 @@ displayed_sidebar: docs
 sidebar_position: 20
 ---
 
+
 # Privileges supported by StarRocks
 
 Privileges granted to a user or role determine which operations the user or role can perform on certain objects. Privileges can be used to implement fine-grained access control to safeguard data security.
