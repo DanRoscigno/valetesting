@@ -2,7 +2,7 @@ name: Vale
 on:
   pull_request:
     paths:
-    - 'starrocks/docs/en/**/*'
+    - 'docs/en/**/*'
 
 permissions:
   contents: read
