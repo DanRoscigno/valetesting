@@ -41,6 +41,10 @@ jobs:
       run: |
         find .. -type d -name styles
 
+     - name: Debug template dir path
+      run: |
+        find .. -type f -name vale_template.tmpl
+
     - name: Edit StylesPath in Vale config file
       run: sed -i 's/\.\.\/starrocks-vale\/styles/\.\/starrocks-vale\/styles/' ./docs/.vale.ini
       #run: sed -i 's/\.\.\/datadog-vale\/styles/datadog-vale\/styles/' .vale.ini
