@@ -42,7 +42,7 @@ jobs:
         find .. -type d -name styles
 
     - name: Edit StylesPath in Vale config file
-      run: sed -i 's/\.\.\/starrocks-vale\/styles/starrocks-vale\/styles/' ./docs/.vale.ini
+      run: sed -i 's/\.\.\/starrocks-vale\/../valetesting/starrocks-vale\/styles/' ./docs/.vale.ini
            
     - name: Find changed lines
       id: changed_lines
