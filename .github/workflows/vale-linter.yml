@@ -60,7 +60,7 @@ jobs:
         CHANGED_FILES: ${{ steps.changed_lines.outputs.changed_files }}
       run: |
         vale --config="./docs/.vale.ini" "${CHANGED_FILES}" \
-          --output=local/bin/py/vale/vale_template.tmpl --no-exit > vale_output.log
+          --output=../valetesting/starrocks-vale/templates/vale_template.tmpl --no-exit > vale_output.log
 
     - name: Parse Vale output
       if: steps.changed_lines.outputs.changed_files
