@@ -211,7 +211,7 @@ enable_load_volume_from_conf = true
 
 Run this command from the directory containing the `docker-compose.yml` file.
 
-If you are using a client other than the mysql CLI, open that now.
+If you are using a client other than the mysql CLI, open your client now.
 :::
 
 ```sql
