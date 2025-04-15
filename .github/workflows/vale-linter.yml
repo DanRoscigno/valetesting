@@ -27,11 +27,6 @@ jobs:
         repository: DanRoscigno/starrocks-vale
         path: starrocks-vale
         persist-credentials: false
-    
-    - uses: actions/setup-python@v5.1.0
-      with:
-        python-version: '3.11'
-    - run: pip install vale==3.9.1
 
     - name: Debug config file path
       run: |
@@ -41,31 +36,21 @@ jobs:
       run: |
         find .. -type d -name styles
 
-    - name: Debug template dir path
-      run: |
-        find .. -type f -name vale_template.tmpl
-
     - name: Edit StylesPath in Vale config file
       run: sed -i 's/\.\.\/starrocks-vale\/styles/\.\/starrocks-vale\/styles/' ./docs/.vale.ini
-      #run: sed -i 's/\.\.\/datadog-vale\/styles/datadog-vale\/styles/' .vale.ini
+
     - name: Find changed lines
       id: changed_lines
       uses: hestonhoffman/changed-lines@v1
       with:
-        file_filter: '.md, .html'
-  
-    - name: Run vale on changed files
+        file_filter: '.md, .mdx'
+      
+    - name: run-vale
       if: steps.changed_lines.outputs.changed_files
-      env: 
-        CHANGED_FILES: ${{ steps.changed_lines.outputs.changed_files }}
-      run: |
-        vale --config="./docs/.vale.ini" "${CHANGED_FILES}" \
-          --output=../valetesting/starrocks-vale/templates/vale_template.tmpl --no-exit > vale_output.log
-
-    - name: Parse Vale output
-      if: steps.changed_lines.outputs.changed_files
-      env:
-        CHANGED_LINES: ${{ steps.changed_lines.outputs.changed_lines }}
-      run: |
-        python ../valetesting/starrocks-vale/templates/vale_annotations.py \
-          --git_data="${CHANGED_LINES}"
+      uses: errata-ai/vale-action@reviewdog
+      with:
+        reporter: github-pr-check
+        files: ${{steps.changed_lines.outputs.changed_files}}
+        fail_on_error: true
+        token: ${{secrets.GITHUB_TOKEN}}
+        vale_flags: "--config=./docs/.vale.ini"
