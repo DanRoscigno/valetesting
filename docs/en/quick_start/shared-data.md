@@ -24,7 +24,7 @@ This tutorial covers:
 
 The data used is provided by NYC OpenData and the National Centers for Environmental Information at NOAA.
 
-Both of these datasets are very large, and because this tutorial is intended to help you get exposed to working with StarRocks we are not going to load data for the past 120 years. You can run the Docker image and load this data on a machine with 4 GB RAM assigned to Docker. For larger fault-tolerant and scalable deployments we have other documentation and will provide that later.
+Both of these datasets are very large, and because this tutorial is intended to help you get exposed to working with StarRocks you are not going to load data for the past 120 years. You can run the Docker image and load this data on a machine with 4 GB RAM assigned to Docker. For larger fault-tolerant and scalable deployments we have other documentation and will provide that later.
 
 There is a lot of information in this document, and it is presented with the step by step content at the beginning, and the technical details at the end. This is done to serve these purposes in this order:
 
@@ -44,7 +44,7 @@ There is a lot of information in this document, and it is presented with the ste
 
 ### SQL client
 
-You can use the SQL client provided in the Docker environment, or use one on your system. Many MySQL compatible clients will work, and this guide covers the configuration of DBeaver and MySQL Workbench.
+You can use the SQL client provided in the Docker environment, or one on your system. Many MySQL compatible clients will work, and this guide covers the configuration of DBeaver and MySQL Workbench.
 
 ### curl
 
@@ -52,7 +52,7 @@ You can use the SQL client provided in the Docker environment, or use one on you
 
 ### `/etc/hosts`
 
-The ingest method used in this guide is Stream Load. Stream Load connects to the FE service to start the ingest job. The FE then assigns the job to a backend node, the CN in this guide. In order for the ingest job to connect to the CN the name of the CN must be available to your operating system. Add this line to `/etc/hosts`:
+The ingestion method used in this guide is Stream Load. Stream Load connects to the FE service to start the ingest job. The FE then assigns the job to a backend node, the CN in this guide. In order for the ingest job to connect to the CN the name of the CN must be available to your operating system. Add this line to `/etc/hosts`:
 
 ```bash
 127.0.0.1 starrocks-cn
