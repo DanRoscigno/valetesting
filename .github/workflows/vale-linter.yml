@@ -50,7 +50,6 @@ jobs:
       if: steps.changed_lines.outputs.changed_files
       env:
         REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      uses: errata-ai/vale-action@reviewdog
       with:
         reporter: github-pr-review
         files: ${{steps.changed_lines.outputs.changed_files}}
